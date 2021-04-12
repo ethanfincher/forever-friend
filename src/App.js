@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import Dogs from './components/Dogs.js';
 import Cats from './components/Cats.js';
-import './App.css';
+import Home from './components/Home.js'
+import './styles/App.css';
 import Pet from './components/Pet.js';
 const dotenv = require('dotenv').config();
 
@@ -43,13 +44,18 @@ function App() {
 
 	return (
 		<div className='App'>
-			<h1>Welcome to Forever Friend!</h1>
-			<Link to='/cats'>
-				<button>cats</button>
-			</Link>
-			<Link to='/dogs'>
-				<button>dogs</button>
-			</Link>
+			<h1 id = 'welcome'>Welcome to Forever Friend!</h1>
+			<nav>
+				<Link to='/cats'>
+					<button className='navButton'>cats</button>
+				</Link>
+				<Link to='/home'>
+					<button className='navButton'>home</button>
+				</Link>
+				<Link to='/dogs'>
+					<button className='navButton'>dogs</button>
+				</Link>
+			</nav>
 
 			<Switch>
 				<Route
@@ -67,6 +73,9 @@ function App() {
 				</Route>
 				<Route exact path='/cats'>
 					<Cats token={token} />
+				</Route>
+				<Route exact path='/home'>
+					<Home></Home>
 				</Route>
 			</Switch>
 		</div>

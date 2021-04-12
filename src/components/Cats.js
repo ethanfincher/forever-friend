@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PetList from './PetList.js';
+import '../styles/DogOrCat.css';
 
 export default function Cats({ token }) {
 	const [catsList, setCatsList] = useState([]);
@@ -43,7 +44,10 @@ export default function Cats({ token }) {
 	return (
 		<div>
 			<form onSubmit={onSubmit}>
-				<label>Enter your zip code here to find pets around you!</label>
+				<label className='formLabel'>
+					Enter your zip code here to find pets around you!
+				</label>
+				<br />
 				<br />
 				<input type='text' onChange={onChange} placeholder='ZIP'></input>
 				<button type='submit'>Find a Friend!</button>

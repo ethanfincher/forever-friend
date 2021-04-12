@@ -1,0 +1,31 @@
+.petCard{
+    height: 75%;
+    border: 2px solid lightgray;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 25px;
+    border-radius: 10px;
+}
+
+.hello{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 40px;
+    border: 2px solid gray;
+}
+
+.petImage{
+    max-width: 75%;
+    min-width: 60%;
+    max-height: 10%;
+}
+
+.petName{
+    font-size: 34px;
+}
+
+.breed{
+    font-size: 17px;
+}

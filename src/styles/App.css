@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 10px;
+}
+
+.navButton{
+  font-size: 20px;
+  padding: 10px 25px
+}
+
+#welcome{
+  font-size: 48px;
+}
