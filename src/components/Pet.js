@@ -6,7 +6,7 @@ export default function Pet({ match, token, type }) {
 
 	function getPet() {
 		var xhr = new XMLHttpRequest();
-		xhr.open('GET', `https://api.petfinder.com/v2/animals/${match.params.ID}`);
+		xhr.open('GET', `https://api.petfinder.com/v2/animals/${match.params.ID}?location=60014`);
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 		xhr.onreadystatechange = function () {
@@ -14,7 +14,7 @@ export default function Pet({ match, token, type }) {
 				if (this.status === 200) {
 					let data = JSON.parse(xhr.response);
 					setPet(data.animal);
-					console.log(typeof data.animal.breeds);
+					console.log(data.animal);
 				} else {
 					alert('PROBLEM3');
 				}
@@ -45,28 +45,28 @@ export default function Pet({ match, token, type }) {
 			{pet.photos.length !== 0 ? (
 				<img src={pet.photos[0].full} alt=''></img>
 			) : (
-				<p>no pictures available</p>
+				<p>No pictures available</p>
 			)}
 			<ul>
 				<li>Age: {pet.age}</li>
 				<li>Gender: {pet.gender}</li>
 				<li>Size: {pet.size}</li>
 				<li>
-					Spayed/Neutered:
-					{pet.attributes.spayed_neutered === true ? 'yes' : 'no'}
+					Spayed/Neutered:{' '}
+					{pet.attributes.spayed_neutered === true ? 'Yes' : 'No'}
 				</li>
 				<li>
-					House Trained: {pet.attributes.house_trained === true ? 'yes' : 'no'}
+					House Trained: {pet.attributes.house_trained === true ? 'Yes' : 'No'}
 				</li>
 				{type === 'cat' ? (
-					<li>Declawed: {pet.attributes.declawed === true ? 'yes' : 'no'}</li>
+					<li>Declawed: {pet.attributes.declawed === true ? 'Yes' : 'No'}</li>
 				) : null}
 				<li>
-					Special Needs: {pet.attributes.special_needs === true ? 'yes' : 'no'}
+					Special Needs: {pet.attributes.special_needs === true ? 'Yes' : 'No'}
 				</li>
 				<li>
 					Spayed/Neutered:{' '}
-					{pet.attributes.shots_current === true ? 'yes' : 'no'}
+					{pet.attributes.shots_current === true ? 'Yes' : 'No'}
 				</li>
 			</ul>
 			<div>
@@ -81,6 +81,7 @@ export default function Pet({ match, token, type }) {
 				)}
 				<p>Email: {pet.contact.email}</p>
 				<p>Phone Number: {pet.contact.phone}</p>
+                {pet.distance ? <p>distance from zip</p> : ""}
 			</div>
 		</div>
 	);

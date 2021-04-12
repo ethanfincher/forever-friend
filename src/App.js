@@ -7,8 +7,6 @@ import Pet from './components/Pet.js';
 const dotenv = require('dotenv').config();
 
 function App() {
-	console.log(process.env.REACT_APP_API_KEY);
-	console.log(process.env.REACT_APP_SECRET);
 	const [token, setToken] = useState('');
 
 	var data_object = {

@@ -20,11 +20,12 @@ export default function PetList({ list, type }) {
 						) : (
 							<h5>Breed: {pet.breeds.primary}</h5>
 						)}
+                        <p>Distance from ZIP: {pet.distance} mi</p>
 						{pet.photos.length !== 0 ? (
 							<img src={pet.photos[0].full} alt=''></img>
 						) : (
 							<p>no pictures available</p>
-						)}
+						)}<br/>
 						<Link to={link}>
 							<button>check them out!</button>
 						</Link>
